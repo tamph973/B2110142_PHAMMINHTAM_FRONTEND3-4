@@ -52,13 +52,15 @@
         </div>
 
         <div class="form-group">
-            <button class="btn btn-primary" @click="submitContact">Lưu</button>
+            <button class="btn btn-primary" @click="submitContact">
+                <i class="fa-solid fa-floppy-disk"></i>&nbsp;Lưu
+            </button>
             <button
                 v-if="contactLocal._id"
                 type="button"
                 class="ml-2 btn btn-danger"
                 @click="deleteContact">
-                Xóa
+                <i class="fa-solid fa-trash"></i>&nbsp;Xóa
             </button>
         </div>
     </Form>
@@ -95,7 +97,7 @@ export default {
                 .matches(
                     /((09|03|07|08|05)+([0-9]{8})\b)/g,
                     "Số điện thoại không hợp lệ."
-                ),  
+                ),
         });
         return {
             // Chúng ta sẽ không muốn hiệu chỉnh props, nên tạo biến cục bộ
@@ -110,7 +112,7 @@ export default {
             this.$emit("submit:contact", this.contactLocal);
         },
         deleteContact() {
-            this.$emits("delete:contact", this.contactLocal.id);
+            this.$emit("delete:contact", this.contactLocal.id);
         },
     },
 };

@@ -21,14 +21,13 @@ export default {
     props: {
         id: { type: String, require: true },
     },
-
+    
     data() {
         return {
             contact: null,
             message: "",
         };
     },
-    
     methods: {
         async getContact(id) {
             try {
